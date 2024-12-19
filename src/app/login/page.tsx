@@ -11,7 +11,7 @@ export default function LoginPage() {
         </div>
 
         {/* Login section */}
-        <div className="flex items-center justify-center p-4 md:p-8">
+        <div className="flex items-center justify-center px-4 py-12 md:p-8">
           <LoginForm />
         </div>
       </div>
