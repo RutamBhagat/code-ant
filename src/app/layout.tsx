@@ -1,3 +1,4 @@
+import { ScreenSize } from "@/components/screen-size";
 import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
@@ -15,6 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
       <body>{children}</body>
+      {process.env.NODE_ENV === "development" && <ScreenSize />}
     </html>
   );
 }

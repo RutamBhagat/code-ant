@@ -1,21 +1,35 @@
+import Image from "next/image";
 import { LoginForm } from "@/components/login/login-form";
 import { StatsSection } from "@/components/login/stats-section";
 
+const GRADIENT_BG = "linear-gradient(to right, white 50%, #fafafa 50%)";
+
 export default function LoginPage() {
   return (
-    <div className="bg-[linear-gradient(to_right,white_50%,#fafafa_50%)]">
+    <div className="relative min-h-screen" style={{ background: GRADIENT_BG }}>
       <div className="mx-auto flex min-h-screen w-full max-w-[1440px]">
-        {/* Stats section - only visible on desktop */}
-        <div className="relative hidden w-1/2 lg:block">
-          <div className="relative z-10 flex h-full items-center justify-center">
-            <StatsSection />
-          </div>
-        </div>
+        <aside
+          className="relative hidden w-1/2 items-center justify-center md:flex"
+          aria-label="Statistics"
+        >
+          <StatsSection />
+        </aside>
 
-        {/* Login section */}
-        <div className="flex w-full items-center justify-center px-6 py-12 lg:w-1/2">
+        <section
+          className="flex w-full items-center justify-center px-6 md:w-1/2"
+          aria-label="Login Form"
+        >
           <LoginForm />
-        </div>
+        </section>
+      </div>
+
+      {/* Background logo positioned relative to page root */}
+      <div
+        className="absolute bottom-0 left-0"
+        aria-hidden="true"
+        role="presentation"
+      >
+        <Image src="/logo-large.svg" alt="" width={284} height={319} priority />
       </div>
     </div>
   );
