@@ -64,7 +64,7 @@ export function LoginForm() {
   const [mode, setMode] = useState<"saas" | "self-hosted">("saas");
 
   return (
-    <main className="flex w-full flex-col">
+    <main className="flex w-[408px] flex-col lg:w-full">
       <Card className="w-full flex-1 shadow-md">
         <header className="px-6 pt-9 text-center">
           <div className="mb-4 flex items-center justify-center gap-3">
@@ -77,7 +77,7 @@ export function LoginForm() {
             />
             <span className="text-3xl leading-8">CodeAnt AI</span>
           </div>
-          <h1 className="text-3xl font-semibold leading-[48px] tracking-wide">
+          <h1 className="text-2xl font-semibold leading-[48px] tracking-wide lg:text-3xl">
             Welcome to CodeAnt AI
           </h1>
         </header>
@@ -88,7 +88,7 @@ export function LoginForm() {
               <button
                 key={type}
                 onClick={() => setMode(type as "saas" | "self-hosted")}
-                className={`h-[60px] flex-1 rounded-lg px-4 py-2 text-xl font-semibold leading-7 transition-all ${
+                className={`h-[52px] flex-1 rounded-lg px-4 py-2 text-xl font-semibold leading-7 transition-all lg:h-[60px] ${
                   mode === type
                     ? "bg-blue-500 text-white"
                     : "bg-gray-100 text-gray-600 hover:text-gray-900"
@@ -109,7 +109,7 @@ export function LoginForm() {
         </section>
       </Card>
 
-      <footer className="py-8 text-center text-base leading-6 text-gray-600">
+      <footer className="py-8 text-center text-sm text-gray-600 lg:text-base">
         By signing up you agree to the{" "}
         <Link
           href="/privacy"
