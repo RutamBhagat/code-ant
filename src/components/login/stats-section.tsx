@@ -10,7 +10,7 @@ export function StatsSection() {
         <Card className="rounded-3xl bg-white shadow-lg">
           <div className="flex items-center gap-3 p-6 pb-0">
             <Image src="/logo.svg" alt="" width={28} height={30} />
-            <h2 className="text-lg font-semibold text-[#0A0A29]">
+            <h2 className="text-lg font-semibold leading-7 text-[#0A0A29]">
               AI to Detect & Autofix Bad Code
             </h2>
           </div>
@@ -20,16 +20,24 @@ export function StatsSection() {
           {/* Stats Grid */}
           <div className="grid grid-cols-3 p-6 pt-0">
             <div className="text-center">
-              <div className="text-lg font-bold text-[#0A0A29]">30+</div>
-              <div className="text-sm text-gray-600">Language Support</div>
+              <div className="text-lg font-bold leading-7 text-[#0A0A29]">
+                30+
+              </div>
+              <div className="text-sm leading-5 text-gray-600">
+                Language Support
+              </div>
             </div>
             <div className="text-center">
-              <div className="text-lg font-bold text-[#0A0A29]">10K+</div>
-              <div className="text-sm text-gray-600">Developers</div>
+              <div className="text-lg font-bold leading-7 text-[#0A0A29]">
+                10K+
+              </div>
+              <div className="text-sm leading-5 text-gray-600">Developers</div>
             </div>
             <div className="text-center">
-              <div className="text-lg font-bold text-[#0A0A29]">100K+</div>
-              <div className="text-sm text-gray-600">Hours Saved</div>
+              <div className="text-lg font-bold leading-7 text-[#0A0A29]">
+                100K+
+              </div>
+              <div className="text-sm leading-5 text-gray-600">Hours Saved</div>
             </div>
           </div>
         </Card>
@@ -47,18 +55,18 @@ export function StatsSection() {
                     height={30}
                   />
                 </div>
-                <div className="text-sm font-bold">Issues Fixed</div>
+                <div className="text-sm font-bold leading-5">Issues Fixed</div>
               </div>
-              <div className="text-3xl font-bold leading-none text-[#0A0A29]">
+              <div className="text-3xl font-bold leading-8 text-[#0A0A29]">
                 500K+
               </div>
             </div>
             <div>
-              <div className="flex items-center gap-1 px-3 text-sm font-bold text-blue-600">
+              <div className="flex items-center gap-1 px-3 text-sm font-bold leading-5 text-blue-600">
                 <ArrowUp className="h-4 w-4 font-bold" />
                 <span>14%</span>
               </div>
-              <div className="text-xsm font-normal">This week</div>
+              <div className="text-xsm font-normal leading-4">This week</div>
             </div>
           </div>
         </Card>

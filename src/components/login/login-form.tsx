@@ -1,8 +1,7 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -11,56 +10,59 @@ export function LoginForm() {
   const [mode, setMode] = useState<"saas" | "self-hosted">("saas");
 
   return (
-    <Card className="w-full max-w-[440px] shadow-md">
-      <CardContent className="p-8">
+    <div className="flex w-full flex-col">
+      <Card className="w-full flex-1 shadow-md">
         <div className="space-y-6">
           {/* Logo and Title */}
-          <div className="text-center">
-            <div className="mb-2 flex justify-center">
+          <div className="px-6 pt-9 text-center">
+            <div className="mb-4 flex items-center justify-center gap-3">
               <Image
                 src="/logo.svg"
                 alt="CodeAnt AI"
-                width={32}
-                height={32}
+                width={36}
+                height={40}
                 className="h-8 w-8"
               />
+              <span className="text-3xl leading-8">CodeAnt AI</span>
             </div>
-            <h1 className="text-2xl font-semibold tracking-tight">
+            <h1 className="text-3xl font-semibold leading-[48px] tracking-wide">
               Welcome to CodeAnt AI
             </h1>
           </div>
 
           {/* Custom Toggle */}
-          <div className="flex rounded-lg bg-gray-100 p-1">
-            <button
-              onClick={() => setMode("saas")}
-              className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-all ${
-                mode === "saas"
-                  ? "bg-white text-black shadow-sm"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
-            >
-              SAAS
-            </button>
-            <button
-              onClick={() => setMode("self-hosted")}
-              className={`flex-1 rounded-md px-4 py-2 text-sm font-medium transition-all ${
-                mode === "self-hosted"
-                  ? "bg-white text-black shadow-sm"
-                  : "text-gray-500 hover:text-gray-900"
-              }`}
-            >
-              Self Hosted
-            </button>
+          <div className="px-6">
+            <div className="flex rounded-lg bg-gray-100">
+              <button
+                onClick={() => setMode("saas")}
+                className={`h-[60px] flex-1 rounded-lg px-4 py-2 text-xl font-semibold leading-7 transition-all ${
+                  mode === "saas"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-100 text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                SAAS
+              </button>
+              <button
+                onClick={() => setMode("self-hosted")}
+                className={`h-[60px] flex-1 rounded-lg px-4 py-2 text-xl font-semibold leading-7 transition-all ${
+                  mode === "self-hosted"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-100 text-gray-600 hover:text-gray-900"
+                }`}
+              >
+                Self Hosted
+              </button>
+            </div>
           </div>
 
-          {/* Login Buttons */}
-          <div className="space-y-3">
+          <div className="flex min-h-[325px] flex-col gap-4 border-0 border-t-2 border-gray-200 p-6">
+            {/* Login Buttons */}
             {mode === "saas" ? (
               <>
                 <Button
                   variant="outline"
-                  className="h-11 w-full justify-center gap-3 rounded-lg border-gray-200 font-normal hover:bg-gray-50/50"
+                  className="mx-auto h-14 w-full max-w-[446px] justify-center gap-3 rounded-lg border-gray-200 px-6 font-normal hover:bg-gray-50/50"
                   asChild
                 >
                   <Link href="/auth/github">
@@ -70,12 +72,14 @@ export function LoginForm() {
                       width={20}
                       height={20}
                     />
-                    <span>Sign in with Github</span>
+                    <span className="text-base font-semibold leading-6">
+                      Sign in with Github
+                    </span>
                   </Link>
                 </Button>
                 <Button
                   variant="outline"
-                  className="h-11 w-full justify-center gap-3 rounded-lg border-gray-200 font-normal hover:bg-gray-50/50"
+                  className="mx-auto h-14 w-full max-w-[446px] justify-center gap-3 rounded-lg border-gray-200 px-6 font-normal hover:bg-gray-50/50"
                   asChild
                 >
                   <Link href="/auth/bitbucket">
@@ -85,12 +89,14 @@ export function LoginForm() {
                       width={20}
                       height={20}
                     />
-                    <span>Sign in with Bitbucket</span>
+                    <span className="text-base font-semibold leading-6">
+                      Sign in with Bitbucket
+                    </span>
                   </Link>
                 </Button>
                 <Button
                   variant="outline"
-                  className="h-11 w-full justify-center gap-3 rounded-lg border-gray-200 font-normal hover:bg-gray-50/50"
+                  className="mx-auto h-14 w-full max-w-[446px] justify-center gap-3 rounded-lg border-gray-200 px-6 font-normal hover:bg-gray-50/50"
                   asChild
                 >
                   <Link href="/auth/azure">
@@ -100,12 +106,14 @@ export function LoginForm() {
                       width={20}
                       height={20}
                     />
-                    <span>Sign in with Azure Devops</span>
+                    <span className="text-base font-semibold leading-6">
+                      Sign in with Azure Devops
+                    </span>
                   </Link>
                 </Button>
                 <Button
                   variant="outline"
-                  className="h-11 w-full justify-center gap-3 rounded-lg border-gray-200 font-normal hover:bg-gray-50/50"
+                  className="mx-auto h-14 w-full max-w-[446px] justify-center gap-3 rounded-lg border-gray-200 px-6 font-normal hover:bg-gray-50/50"
                   asChild
                 >
                   <Link href="/auth/gitlab">
@@ -115,7 +123,9 @@ export function LoginForm() {
                       width={20}
                       height={20}
                     />
-                    <span>Sign in with GitLab</span>
+                    <span className="text-base font-semibold leading-6">
+                      Sign in with GitLab
+                    </span>
                   </Link>
                 </Button>
               </>
@@ -123,7 +133,7 @@ export function LoginForm() {
               <>
                 <Button
                   variant="outline"
-                  className="h-11 w-full justify-center gap-3 rounded-lg border-gray-200 font-normal hover:bg-gray-50/50"
+                  className="mx-auto h-14 w-full max-w-[446px] justify-center gap-3 rounded-lg border-gray-200 px-6 font-normal hover:bg-gray-50/50"
                   asChild
                 >
                   <Link href="/auth/self-hosted">
@@ -133,36 +143,39 @@ export function LoginForm() {
                       width={20}
                       height={20}
                     />
-                    <span>Self Hosted GitLab</span>
+                    <span className="text-base font-semibold leading-6">
+                      Self Hosted GitLab
+                    </span>
                   </Link>
                 </Button>
                 <Button
                   variant="outline"
-                  className="h-11 w-full justify-center gap-3 rounded-lg border-gray-200 font-normal hover:bg-gray-50/50"
+                  className="mx-auto h-14 w-full max-w-[446px] justify-center gap-3 rounded-lg border-gray-200 px-6 font-normal hover:bg-gray-50/50"
                   asChild
                 >
                   <Link href="/auth/sso">
                     <Image src="/icons/key.svg" alt="" width={20} height={20} />
-                    <span>Sign in with SSO</span>
+                    <span className="text-base font-semibold leading-6">
+                      Sign in with SSO
+                    </span>
                   </Link>
                 </Button>
               </>
             )}
           </div>
-
-          {/* Privacy Policy */}
-          <div className="text-center text-sm text-gray-500">
-            By signing up you agree to the{" "}
-            <Link
-              href="/privacy"
-              className="font-medium text-gray-900 hover:underline"
-            >
-              Privacy Policy
-            </Link>
-            .
-          </div>
         </div>
-      </CardContent>
-    </Card>
+      </Card>
+      {/* Privacy Policy */}
+      <div className="py-8 text-center text-base leading-6 text-gray-600">
+        By signing up you agree to the{" "}
+        <Link
+          href="/privacy"
+          className="font-bold text-gray-900 hover:underline"
+        >
+          Privacy Policy
+        </Link>
+        .
+      </div>
+    </div>
   );
 }
