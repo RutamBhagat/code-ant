@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
+import { signIn } from "@/server/auth";
 import { useState } from "react";
 
 const BUTTON_STYLES = {
@@ -15,39 +16,55 @@ type LoginOption = {
   provider: string;
   icon: string;
   label: string;
-  href: string;
+  onClick?: () => void;
 };
 
-const LoginButton = ({ icon, label, href }: LoginOption) => (
-  <Button
-    variant="outline"
-    className={`${BUTTON_STYLES.base} ${BUTTON_STYLES.outline}`}
-    asChild
-  >
-    <Link href={href}>
+const LoginButton = ({ icon, label, onClick }: LoginOption) => {
+  return (
+    <Button
+      variant="outline"
+      className={`${BUTTON_STYLES.base} ${BUTTON_STYLES.outline}`}
+      onClick={onClick}
+    >
       <Image src={`/icons/${icon}.svg`} alt="" width={20} height={20} />
       <span className="text-base font-semibold leading-6">
         Sign in with {label}
       </span>
-    </Link>
-  </Button>
-);
+    </Button>
+  );
+};
 
 const SAAS_OPTIONS: LoginOption[] = [
-  { provider: "github", icon: "github", label: "Github", href: "/auth/github" },
+  {
+    provider: "github",
+    icon: "github",
+    label: "Github",
+    // onClick: () => void signIn("github"),
+  },
   {
     provider: "bitbucket",
     icon: "bitbucket",
     label: "Bitbucket",
-    href: "/auth/bitbucket",
+    onClick: () => {
+      console.log("TODO: Implement Bitbucket login");
+    },
   },
   {
     provider: "azure",
     icon: "azure",
     label: "Azure Devops",
-    href: "/auth/azure",
+    onClick: () => {
+      console.log("TODO: Implement Azure Devops login");
+    },
   },
-  { provider: "gitlab", icon: "gitlab", label: "GitLab", href: "/auth/gitlab" },
+  {
+    provider: "gitlab",
+    icon: "gitlab",
+    label: "GitLab",
+    onClick: () => {
+      console.log("TODO: Implement GitLab login");
+    },
+  },
 ];
 
 const SELF_HOSTED_OPTIONS: LoginOption[] = [
@@ -55,9 +72,18 @@ const SELF_HOSTED_OPTIONS: LoginOption[] = [
     provider: "gitlab",
     icon: "gitlab",
     label: "Self Hosted GitLab",
-    href: "/auth/self-hosted",
+    onClick: () => {
+      console.log("TODO: Implement Self Hosted GitLab login");
+    },
   },
-  { provider: "sso", icon: "key", label: "SSO", href: "/auth/sso" },
+  {
+    provider: "sso",
+    icon: "key",
+    label: "SSO",
+    onClick: () => {
+      console.log("TODO: Implement SSO login");
+    },
+  },
 ];
 
 export function LoginForm() {
@@ -109,7 +135,7 @@ export function LoginForm() {
         </section>
       </Card>
 
-      <footer className="py-8 text-center text-sm text-gray-600 lg:text-base">
+      <footer className="py-8 text-center text-sm leading-6 text-gray-600 lg:text-base">
         By signing up you agree to the{" "}
         <Link
           href="/privacy"
