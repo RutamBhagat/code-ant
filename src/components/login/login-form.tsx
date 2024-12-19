@@ -11,22 +11,28 @@ export function LoginForm() {
   const [mode, setMode] = useState("saas");
 
   return (
-    <div className="w-full max-w-[400px] space-y-6">
+    <div className="w-full max-w-[440px] space-y-8">
       {/* Logo */}
       <div className="text-center">
-        <div className="mb-2 flex justify-center">
-          <Image src="/logo.svg" alt="CodeAnt AI" width={40} height={40} />
+        <div className="mb-4 flex justify-center">
+          <Image src="/logo.svg" alt="CodeAnt AI" width={48} height={48} />
         </div>
-        <h1 className="text-2xl font-semibold">Welcome to CodeAnt AI</h1>
+        <h1 className="text-[28px] font-semibold">Welcome to CodeAnt AI</h1>
       </div>
 
       {/* Mode Toggle */}
       <Tabs defaultValue="saas" className="w-full" onValueChange={setMode}>
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="saas" className="text-base">
+        <TabsList className="grid w-full grid-cols-2 rounded-lg bg-gray-100 p-1">
+          <TabsTrigger
+            value="saas"
+            className="rounded-md px-8 py-2.5 text-base data-[state=active]:bg-white data-[state=active]:shadow-sm"
+          >
             SAAS
           </TabsTrigger>
-          <TabsTrigger value="self-hosted" className="text-base">
+          <TabsTrigger
+            value="self-hosted"
+            className="rounded-md px-8 py-2.5 text-base data-[state=active]:bg-white data-[state=active]:shadow-sm"
+          >
             Self Hosted
           </TabsTrigger>
         </TabsList>
@@ -38,7 +44,7 @@ export function LoginForm() {
           <>
             <Button
               variant="outline"
-              className="w-full justify-start gap-3 text-base font-normal"
+              className="h-14 w-full justify-start gap-3 rounded-xl text-base font-normal hover:bg-gray-50"
               asChild
             >
               <Link href="/auth/github">
@@ -48,7 +54,7 @@ export function LoginForm() {
             </Button>
             <Button
               variant="outline"
-              className="w-full justify-start gap-3 text-base font-normal"
+              className="h-14 w-full justify-start gap-3 rounded-xl text-base font-normal hover:bg-gray-50"
               asChild
             >
               <Link href="/auth/bitbucket">
@@ -63,7 +69,7 @@ export function LoginForm() {
             </Button>
             <Button
               variant="outline"
-              className="w-full justify-start gap-3 text-base font-normal"
+              className="h-14 w-full justify-start gap-3 rounded-xl text-base font-normal hover:bg-gray-50"
               asChild
             >
               <Link href="/auth/azure">
@@ -73,7 +79,7 @@ export function LoginForm() {
             </Button>
             <Button
               variant="outline"
-              className="w-full justify-start gap-3 text-base font-normal"
+              className="h-14 w-full justify-start gap-3 rounded-xl text-base font-normal hover:bg-gray-50"
               asChild
             >
               <Link href="/auth/gitlab">
@@ -86,7 +92,7 @@ export function LoginForm() {
           <>
             <Button
               variant="outline"
-              className="w-full justify-start gap-3 text-base font-normal"
+              className="h-14 w-full justify-start gap-3 rounded-xl text-base font-normal hover:bg-gray-50"
               asChild
             >
               <Link href="/auth/self-hosted">
@@ -96,7 +102,7 @@ export function LoginForm() {
             </Button>
             <Button
               variant="outline"
-              className="w-full justify-start gap-3 text-base font-normal"
+              className="h-14 w-full justify-start gap-3 rounded-xl text-base font-normal hover:bg-gray-50"
               asChild
             >
               <Link href="/auth/sso">
@@ -109,9 +115,9 @@ export function LoginForm() {
       </div>
 
       {/* Privacy Policy */}
-      <div className="text-center text-sm">
+      <div className="text-center text-[15px] text-gray-600">
         By signing up you agree to the{" "}
-        <Link href="/privacy" className="font-medium underline">
+        <Link href="/privacy" className="font-semibold text-gray-900 underline">
           Privacy Policy
         </Link>
         .
