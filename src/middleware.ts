@@ -7,6 +7,7 @@ import { auth } from "@/server/auth/index";
 
 // 2. Wrapped middleware option
 export default auth(async function middleware(req: NextRequest) {
+  console.log("Runtime Environment:", process.env.NEXT_RUNTIME);
   const newUrl = new URL("/login", req.nextUrl.origin);
   return Response.redirect(newUrl);
 });
