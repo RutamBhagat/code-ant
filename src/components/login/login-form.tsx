@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
+import { toast } from "sonner";
 import { useState } from "react";
 
 const BUTTON_STYLES = {
@@ -46,7 +47,21 @@ const SAAS_OPTIONS: LoginOption[] = [
     icon: "bitbucket",
     label: "Bitbucket",
     onClick: () => {
-      console.log("TODO: Implement Bitbucket login");
+      toast("Bitbucket login to be implemented please use Github login", {
+        description: new Date().toLocaleString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "2-digit",
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        }),
+        action: {
+          label: "X",
+          onClick: () => console.log("Cancel"),
+        },
+      });
     },
   },
   {
@@ -54,7 +69,21 @@ const SAAS_OPTIONS: LoginOption[] = [
     icon: "azure",
     label: "Azure Devops",
     onClick: () => {
-      console.log("TODO: Implement Azure Devops login");
+      toast("Azure Devops login to be implemented please use Github login", {
+        description: new Date().toLocaleString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "2-digit",
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        }),
+        action: {
+          label: "X",
+          onClick: () => console.log("Cancel"),
+        },
+      });
     },
   },
   {
@@ -62,7 +91,21 @@ const SAAS_OPTIONS: LoginOption[] = [
     icon: "gitlab",
     label: "GitLab",
     onClick: () => {
-      console.log("TODO: Implement GitLab login");
+      toast("GitLab login to be implemented please use Github login", {
+        description: new Date().toLocaleString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "2-digit",
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        }),
+        action: {
+          label: "X",
+          onClick: () => console.log("Cancel"),
+        },
+      });
     },
   },
 ];
@@ -73,7 +116,24 @@ const SELF_HOSTED_OPTIONS: LoginOption[] = [
     icon: "gitlab",
     label: "Self Hosted GitLab",
     onClick: () => {
-      console.log("TODO: Implement Self Hosted GitLab login");
+      toast(
+        "Self hosted GitLab login to be implemented please use Github login",
+        {
+          description: new Date().toLocaleString("en-US", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "2-digit",
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
+          }),
+          action: {
+            label: "X",
+            onClick: () => console.log("Cancel"),
+          },
+        },
+      );
     },
   },
   {
@@ -81,7 +141,21 @@ const SELF_HOSTED_OPTIONS: LoginOption[] = [
     icon: "key",
     label: "SSO",
     onClick: () => {
-      console.log("TODO: Implement SSO login");
+      toast("SSO login to be implemented please use Github login", {
+        description: new Date().toLocaleString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "2-digit",
+          hour: "numeric",
+          minute: "2-digit",
+          hour12: true,
+        }),
+        action: {
+          label: "X",
+          onClick: () => console.log("Cancel"),
+        },
+      });
     },
   },
 ];

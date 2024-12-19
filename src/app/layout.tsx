@@ -1,4 +1,4 @@
-import { ScreenSize } from "@/components/screen-size";
+import Providers from "@/components/providers";
 import "@/styles/globals.css";
 
 import { GeistSans } from "geist/font/sans";
@@ -15,8 +15,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body>{children}</body>
-      {process.env.NODE_ENV === "development" && <ScreenSize />}
+      <Providers>
+        <body>{children}</body>
+      </Providers>
     </html>
   );
 }
