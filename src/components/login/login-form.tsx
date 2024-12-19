@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import { signIn } from "@/server/auth";
+import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 const BUTTON_STYLES = {
@@ -39,7 +39,7 @@ const SAAS_OPTIONS: LoginOption[] = [
     provider: "github",
     icon: "github",
     label: "Github",
-    // onClick: () => void signIn("github"),
+    onClick: () => void signIn("github"),
   },
   {
     provider: "bitbucket",
