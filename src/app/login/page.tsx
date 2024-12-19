@@ -5,7 +5,7 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen w-full">
       {/* Stats section - only visible on desktop */}
-      <div className="relative hidden w-1/2 bg-[#ffffff] lg:block">
+      <div className="relative hidden w-1/2 bg-white lg:block">
         <div className="relative z-10 flex h-full items-center justify-center">
           <StatsSection />
         </div>
