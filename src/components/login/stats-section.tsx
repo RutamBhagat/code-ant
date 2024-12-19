@@ -4,15 +4,12 @@ import Image from "next/image";
 export function StatsSection() {
   return (
     <div className="w-full max-w-[460px] space-y-6 p-8">
+      <div className="absolute bottom-0 left-0 -z-50">
+        <Image src="/logo-large.svg" alt="" width={284} height={319} />
+      </div>
+
       {/* Header Card */}
       <div className="rounded-2xl bg-white p-6 shadow-sm">
-        <div className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="" width={24} height={24} />
-          <span className="text-sm font-medium">
-            AI to Detect & Autofix Bad Code
-          </span>
-        </div>
-
         {/* Stats Grid */}
         <div className="mt-6 grid grid-cols-3 gap-4">
           <div>
