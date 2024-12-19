@@ -40,7 +40,11 @@ const SAAS_OPTIONS: LoginOption[] = [
     provider: "github",
     icon: "github",
     label: "Github",
-    onClick: () => void signIn("github"),
+    onClick: () => {
+      void signIn("github", {
+        callbackUrl: "/repository",
+      });
+    },
   },
   {
     provider: "bitbucket",

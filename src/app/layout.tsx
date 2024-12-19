@@ -5,8 +5,8 @@ import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Login | CodeAnt AI",
-  description: "Login to CodeAnt AI",
+  title: "CodeAnt AI",
+  description: "CodeAnt AI",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
