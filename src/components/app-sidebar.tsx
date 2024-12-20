@@ -31,6 +31,7 @@ import {
 
 import Image from "next/image";
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 
 const navigationItems = [
@@ -69,7 +70,7 @@ const footerItems = [
   },
   {
     title: "Logout",
-    url: "/",
+    onClick: () => signOut(),
     icon: LogOut,
   },
 ];
@@ -143,13 +144,23 @@ export function AppSidebar() {
           {footerItems.map((item) => (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild className="h-11 w-full gap-2">
-                <Link
-                  href={item.url}
-                  className="flex items-center gap-3 rounded-md px-3.5 py-2.5"
-                >
-                  <item.icon className="h-5 w-4" />
-                  <span className="text-md font-semibold">{item.title}</span>
-                </Link>
+                {item.url ? (
+                  <Link
+                    href={item.url}
+                    className="flex items-center gap-3 rounded-md px-3.5 py-2.5"
+                  >
+                    <item.icon className="h-5 w-4" />
+                    <span className="text-md font-semibold">{item.title}</span>
+                  </Link>
+                ) : (
+                  <button
+                    onClick={item.onClick}
+                    className="flex w-full items-center gap-3 rounded-md px-3.5 py-2.5"
+                  >
+                    <item.icon className="h-5 w-4" />
+                    <span className="text-md font-semibold">{item.title}</span>
+                  </button>
+                )}
               </SidebarMenuButton>
             </SidebarMenuItem>
           ))}
