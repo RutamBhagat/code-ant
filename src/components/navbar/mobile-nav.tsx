@@ -2,7 +2,6 @@
 
 import * as React from "react";
 
-import { Menu, X } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -18,6 +17,7 @@ import { footerItems, navigationItems } from "./nav-items";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { Menu } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 export function MobileNav() {
@@ -58,7 +58,6 @@ export function MobileNav() {
                 size="icon"
                 onClick={() => setIsOpen(false)}
               >
-                <X className="h-6 w-6" />
                 <span className="sr-only">Close menu</span>
               </Button>
             </div>
@@ -66,19 +65,44 @@ export function MobileNav() {
             {/* User Select */}
             <div className="border-b px-4 py-3">
               <Select value={selectedUser} onValueChange={setSelectedUser}>
-                <SelectTrigger className="h-[42px] w-full border-0 bg-gray-50 p-3 text-base shadow-none">
+                <SelectTrigger className="w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-base hover:bg-gray-50">
                   <SelectValue placeholder="Select a username" />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent className="w-full min-w-[200px]">
                   <SelectGroup>
-                    <SelectLabel>Username</SelectLabel>
-                    <SelectItem value="UtkarshDhairyaPanwar">
+                    <SelectLabel className="px-2 py-1.5 text-sm font-medium text-gray-500">
+                      Username
+                    </SelectLabel>
+                    <SelectItem
+                      value="UtkarshDhairyaPanwar"
+                      className="cursor-pointer px-2 py-1.5 hover:bg-gray-50"
+                    >
                       UtkarshDhairyaPanwar
                     </SelectItem>
-                    <SelectItem value="RutamBhagat">RutamBhagat</SelectItem>
-                    <SelectItem value="KunalKushwaha">KunalKushwaha</SelectItem>
-                    <SelectItem value="HarkiratSingh">HarkiratSingh</SelectItem>
-                    <SelectItem value="PiyushGoyal">PiyushGoyal</SelectItem>
+                    <SelectItem
+                      value="RutamBhagat"
+                      className="cursor-pointer px-2 py-1.5 hover:bg-gray-50"
+                    >
+                      RutamBhagat
+                    </SelectItem>
+                    <SelectItem
+                      value="KunalKushwaha"
+                      className="cursor-pointer px-2 py-1.5 hover:bg-gray-50"
+                    >
+                      KunalKushwaha
+                    </SelectItem>
+                    <SelectItem
+                      value="HarkiratSingh"
+                      className="cursor-pointer px-2 py-1.5 hover:bg-gray-50"
+                    >
+                      HarkiratSingh
+                    </SelectItem>
+                    <SelectItem
+                      value="PiyushGoyal"
+                      className="cursor-pointer px-2 py-1.5 hover:bg-gray-50"
+                    >
+                      PiyushGoyal
+                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
