@@ -1,29 +1,12 @@
----
-title: "CodeAnt AI: Frontend Developer Assignment"
-publishedAt: "2024-12-21"
-summary: "Built a responsive frontend implementation based on provided Figma design for CodeAnt AI, a Y Combinator-backed startup. Implemented using React.js, TypeScript, and Tailwind CSS with the T3 Stack."
-images:
-  - "https://github.com/user-attachments/assets/dcb64d1d-9a96-44f3-8607-0087adc06bc0"
-  - "https://github.com/user-attachments/assets/111f08cb-437f-4959-8ce2-4adb42062aa5"
-  - "https://github.com/user-attachments/assets/a0156c29-1057-49ad-a9a8-cd2d46331284"
-  - "https://github.com/user-attachments/assets/8d0647d8-3cbb-47b6-8f6d-927b459f34b8"
-
-team:
-  - name: "Rutam Bhagat"
-    role: "Frontend Developer Intern"
-    avatar: "/images/avatar.jpg"
-    linkedIn: "https://github.com/RutamBhagat"
----
-
 # CodeAnt AI: Frontend Developer Assignment
 
 ## Overview
 
 CodeAnt AI is a frontend implementation project completed as part of the Frontend Developer Intern hiring assignment. The project focuses on creating an intuitive user interface based on provided Figma designs for CodeAnt AI, a Y Combinator-backed startup revolutionizing code quality and security through AI-driven solutions. Built using the T3 Stack, this implementation demonstrates responsive design and modern web development practices.
 
-**Frontend:** [Live Site URL](https://audiophile-ecom-eight.vercel.app)
+**Frontend:** [Live Site URL](https://code-ant-two.vercel.app/login)
 
-**Frontend Repo:** [Repository URL](https://github.com/RutamBhagat/audiophile-ecom)
+**Frontend Repo:** [Repository URL](https://github.com/RutamBhagat/code-ant)
 
 ## Key Features
 
@@ -85,23 +68,26 @@ Follow these steps to set up and run the CodeAnt AI frontend locally.
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/RutamBhagat/audiophile-ecom
-   cd audiophile-ecom
+   git clone https://github.com/RutamBhagat/code-ant
+   cd code-ant
    ```
 
 2. **Install Dependencies**
 
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
-3. **Start the Development Server**
+3. **Provide Environment Variables**
+
+   ```bash
+   cp .env.example .env
+   npm run db:push
+   ```
+
+4. **Start the Development Server**
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
 
 ## Outcome
@@ -119,7 +105,9 @@ The implementation satisfies key requirements including:
 
 # Screenshots
 
-![5](https://github.com/user-attachments/assets/6b2617f7-0746-4aad-8281-4ee06c109384)
-![6](https://github.com/user-attachments/assets/a3031194-bae9-463f-9f4e-e2d96816f1a5)
-![7](https://github.com/user-attachments/assets/3ccfcd62-740f-46c8-bf9d-9c6150bb7011)
-![8](https://github.com/user-attachments/assets/b11b8196-400c-4834-b7fe-c9562c31c95f)
+![1](https://github.com/user-attachments/assets/edfc6496-c85a-4dcc-850e-c8b98d6e89d2)
+![2](https://github.com/user-attachments/assets/405af6a4-b871-4810-87a6-1e54b745132c)
+![3](https://github.com/user-attachments/assets/fcd04fe2-7755-49c7-807f-df477cc73d12)
+![4](https://github.com/user-attachments/assets/50eee055-3bbb-469e-a87f-d88279bb6bca)
+![5](https://github.com/user-attachments/assets/40eb5b20-ff7e-4ffd-b6e4-95a3094e344f)
+![6](https://github.com/user-attachments/assets/2b04e77c-cd4f-40a5-9fa5-8401b882965e)
