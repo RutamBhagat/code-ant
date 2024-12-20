@@ -1,5 +1,22 @@
 import React from "react";
+import { auth } from "@/server/auth";
+import { redirect } from "next/navigation";
 
-export default function page() {
-  return <div>page</div>;
+export default async function page() {
+  const session = await auth();
+
+  if (!session) {
+    redirect("/login");
+  }
+
+  return (
+    <>
+      <div className="grid auto-rows-min gap-4 md:grid-cols-3">
+        <div className="aspect-video rounded-xl bg-muted/50" />
+        <div className="aspect-video rounded-xl bg-muted/50" />
+        <div className="aspect-video rounded-xl bg-muted/50" />
+      </div>
+      <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
+    </>
+  );
 }
