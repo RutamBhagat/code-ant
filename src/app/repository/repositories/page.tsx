@@ -1,4 +1,4 @@
-import { Plus, RefreshCcw, Search } from "lucide-react";
+import { Database, Plus, RefreshCcw, Search } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -62,37 +62,20 @@ export default async function page() {
           >
             <div className="min-w-0 flex-1 space-y-1">
               <div className="flex items-center gap-2">
-                <h2 className="truncate text-lg font-semibold">{repo.name}</h2>
-                <Badge
-                  variant={
-                    repo.visibility === "Public" ? "secondary" : "outline"
-                  }
-                >
+                <h2 className="truncate text-lg font-medium leading-6 sm:text-xl">
+                  {repo.name}
+                </h2>
+                <Badge className="cursor-pointer rounded-full bg-[#eff8ff] text-sm font-normal leading-5 text-[#1570ef] hover:bg-[#bedff8]">
                   {repo.visibility}
                 </Badge>
               </div>
               <div className="flex items-center gap-6 text-sm text-muted-foreground">
                 <div className="flex items-center gap-2">
-                  <div className="h-2 w-2 rounded-full bg-primary" />
                   {repo.language}
+                  <div className="h-2 w-2 rounded-full bg-[#1570ef]" />
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="h-4 w-4"
-                  >
-                    <path d="M21 7 9 19l-5.5-5.5" />
-                    <path d="M9 19l-5.5-5.5" />
-                    <path d="M21 12 9 24l-5.5-5.5" />
-                  </svg>
+                  <Database className="h-3 w-2.5" />
                   {repo.size}
                 </div>
                 <div>Updated {repo.updatedAt}</div>
