@@ -1,7 +1,5 @@
-import { auth, signOut } from "@/server/auth";
-
-import { Button } from "@/components/ui/button";
 import React from "react";
+import { auth } from "@/server/auth";
 import { redirect } from "next/navigation";
 
 export default async function page() {
@@ -19,14 +17,6 @@ export default async function page() {
         <div className="aspect-video rounded-xl bg-muted/50" />
       </div>
       <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
-      <form
-        action={async () => {
-          "use server";
-          await signOut();
-        }}
-      >
-        <Button type="submit">Sign Out</Button>
-      </form>
     </>
   );
 }

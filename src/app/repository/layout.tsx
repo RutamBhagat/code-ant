@@ -1,6 +1,5 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-
 import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 
 export default function RepositoryLayout({
   children,
@@ -17,7 +16,7 @@ export default function RepositoryLayout({
     >
       <AppSidebar />
       <main className="flex-1 p-6">
-        <SidebarTrigger />
+        {/* <SidebarTrigger /> */}
         {children}
       </main>
     </SidebarProvider>
