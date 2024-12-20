@@ -1,4 +1,4 @@
-import { Plus, RotateCw, Search } from "lucide-react";
+import { Plus, RefreshCcw, Search } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import React from "react";
 import { auth } from "@/server/auth";
 import { redirect } from "next/navigation";
+import { repositories } from "./_components/config";
 
 export default async function page() {
   const session = await auth();
@@ -14,90 +15,46 @@ export default async function page() {
     redirect("/login");
   }
 
-  interface Repository {
-    name: string;
-    visibility: "Public" | "Private";
-    language: string;
-    size: string;
-    updatedAt: string;
-  }
-
-  const repositories: Repository[] = [
-    {
-      name: "design-system",
-      visibility: "Public",
-      language: "React",
-      size: "7320 KB",
-      updatedAt: "1 day ago",
-    },
-    {
-      name: "codeant-ci-app",
-      visibility: "Private",
-      language: "Javascript",
-      size: "5871 KB",
-      updatedAt: "2 days ago",
-    },
-    {
-      name: "analytics-dashboard",
-      visibility: "Private",
-      language: "Python",
-      size: "4521 KB",
-      updatedAt: "5 days ago",
-    },
-    {
-      name: "mobile-app",
-      visibility: "Public",
-      language: "Swift",
-      size: "3096 KB",
-      updatedAt: "3 days ago",
-    },
-    {
-      name: "e-commerce-platform",
-      visibility: "Private",
-      language: "Java",
-      size: "6210 KB",
-      updatedAt: "6 days ago",
-    },
-    {
-      name: "blog-website",
-      visibility: "Public",
-      language: "HTML/CSS",
-      size: "1876 KB",
-      updatedAt: "4 days ago",
-    },
-    {
-      name: "social-network",
-      visibility: "Private",
-      language: "PHP",
-      size: "5432 KB",
-      updatedAt: "7 days ago",
-    },
-  ];
-
   return (
     <div className="space-y-6 p-4 md:p-6">
-      <div className="space-y-2">
-        <h1 className="text-2xl font-bold md:text-3xl">Repositories</h1>
-        <p className="text-muted-foreground">33 total repositories</p>
-      </div>
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="space-y-2">
+          <h1 className="text-2xl font-semibold md:text-3xl">Repositories</h1>
+          <p className="text-sm leading-5 text-muted-foreground">
+            33 total repositories
+          </p>
+        </div>
 
-      <div className="flex flex-col gap-3 sm:flex-row">
-        <Button variant="outline" className="w-full sm:w-auto" size="lg">
-          <RotateCw className="mr-2 h-4 w-4" />
-          Refresh All
-        </Button>
-        <Button className="w-full sm:w-auto" size="lg">
-          <Plus className="mr-2 h-4 w-4" />
-          Add Repository
-        </Button>
+        <div className="flex gap-3">
+          <Button
+            variant="outline"
+            className="h-10 w-full px-4 sm:w-auto"
+            size="lg"
+          >
+            <RefreshCcw className="mr-2 h-4 w-4" />
+            Refresh All
+          </Button>
+          <Button
+            className="h-10 w-full bg-[#1570ef] px-4 text-white hover:bg-[#184179] sm:w-auto"
+            size="lg"
+          >
+            <Plus className="mr-2 h-4 w-4" />
+            Add Repository
+          </Button>
+        </div>
       </div>
 
       <div className="relative">
-        <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-        <Input placeholder="Search Repositories" className="h-12 pl-9" />
+        <div className="absolute inset-y-0 left-3 flex items-center">
+          <Search className="h-4 w-4 text-muted-foreground" />
+        </div>
+        <Input
+          placeholder="Search Repositories"
+          className="h-11 max-w-[366px] pl-11"
+        />
       </div>
 
-      <div className="space-y-4">
+      <div className="">
         {repositories.map((repo) => (
           <div
             key={repo.name}
