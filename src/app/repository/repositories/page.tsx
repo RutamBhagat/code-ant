@@ -58,9 +58,9 @@ export default async function page() {
         {repositories.map((repo) => (
           <div
             key={repo.name}
-            className="flex flex-col gap-2 rounded-lg border p-4 sm:flex-row sm:items-center"
+            className="flex flex-col gap-2 border p-4 hover:bg-[#f5f5f5] sm:flex-row sm:items-center"
           >
-            <div className="min-w-0 flex-1 space-y-1">
+            <div className="min-w-0 flex-1 space-y-3">
               <div className="flex items-center gap-2">
                 <h2 className="truncate text-lg font-medium leading-6 sm:text-xl">
                   {repo.name}
@@ -70,15 +70,17 @@ export default async function page() {
                 </Badge>
               </div>
               <div className="flex items-center gap-6 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 text-sm leading-5 sm:text-base sm:leading-6">
                   {repo.language}
                   <div className="h-2 w-2 rounded-full bg-[#1570ef]" />
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 text-sm leading-5 sm:text-base sm:leading-6">
                   <Database className="h-3 w-2.5" />
                   {repo.size}
                 </div>
-                <div>Updated {repo.updatedAt}</div>
+                <div className="text-sm leading-5 sm:text-base sm:leading-6">
+                  Updated {repo.updatedAt}
+                </div>
               </div>
             </div>
           </div>
