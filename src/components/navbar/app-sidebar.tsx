@@ -31,7 +31,7 @@ export function AppSidebar() {
   const [selectedUser, setSelectedUser] = useState("UtkarshDhairyaPanwar");
 
   return (
-    <Sidebar className="border-r bg-white">
+    <Sidebar className="hidden border-r bg-white lg:block">
       <SidebarHeader className="space-y-5">
         <div className="mx-4 mt-6 flex items-center gap-3">
           <Image src="/logo.svg" alt="CodeAnt AI Logo" width={29} height={32} />

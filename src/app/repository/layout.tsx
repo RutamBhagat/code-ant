@@ -8,25 +8,19 @@ export default function RepositoryLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <SidebarProvider
-        className="hidden lg:block"
-        style={
-          {
-            "--sidebar-width": "242px",
-          } as React.CSSProperties
-        }
-      >
-        <AppSidebar />
-        <main className="flex-1 p-6">
-          {/* <SidebarTrigger /> */}
-          {children}
-        </main>
-      </SidebarProvider>
-      <div className="lg:hidden">
+    <SidebarProvider
+      style={
+        {
+          "--sidebar-width": "242px",
+        } as React.CSSProperties
+      }
+    >
+      <AppSidebar />
+      <main className="flex flex-1 flex-col">
+        {/* <SidebarTrigger /> */}
         <MobileNav />
-        <main className="flex-1 p-6">{children}</main>
-      </div>
-    </>
+        {children}
+      </main>
+    </SidebarProvider>
   );
 }
