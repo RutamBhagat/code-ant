@@ -1,21 +1,23 @@
 "use client";
 
 import {
-  ChevronDown,
   Cloud,
   Code2,
   FileText,
-  HelpCircle,
   Home,
   LogOut,
+  Phone,
   Settings,
 } from "lucide-react";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
 import {
   Sidebar,
   SidebarContent,
@@ -63,7 +65,7 @@ const footerItems = [
   {
     title: "Support",
     url: "/repository/support",
-    icon: HelpCircle,
+    icon: Phone,
   },
   {
     title: "Logout",
@@ -76,22 +78,29 @@ export function AppSidebar() {
   const pathname = usePathname();
 
   return (
-    <Sidebar className="border-r bg-[#FAFAFA]">
-      <SidebarHeader className="flex items-center justify-between border-b px-4">
-        <div className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="CodeAnt AI Logo" width={32} height={32} />
-          <span className="text-lg font-semibold">CodeAnt AI</span>
+    <Sidebar className="border-r bg-white">
+      <SidebarHeader className="space-y-5">
+        <div className="mx-4 mt-6 flex items-center gap-3">
+          <Image src="/logo.svg" alt="CodeAnt AI Logo" width={29} height={32} />
+          <span className="text-2xl leading-6">CodeAnt AI</span>
         </div>
-        <DropdownMenu>
-          <DropdownMenuTrigger className="flex items-center gap-2 text-sm font-medium">
-            UtkarshDhairyaPa...
-            <ChevronDown className="h-4 w-4" />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56" sideOffset={5} align="end">
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <Select>
+          <SelectTrigger className="mx-auto h-[40px] w-[202px]">
+            <SelectValue placeholder="Select a username" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Username</SelectLabel>
+              <SelectItem value="UtkarshDhairyaPanwar">
+                UtkarshDhairyaPanwar
+              </SelectItem>
+              <SelectItem value="RutamBhagat">RutamBhagat</SelectItem>
+              <SelectItem value="KunalKushwaha">KunalKushwaha</SelectItem>
+              <SelectItem value="HarkiratSingh">HarkiratSingh</SelectItem>
+              <SelectItem value="PiyushGoyal">PiyushGoyal</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </SidebarHeader>
 
       <SidebarContent className="px-2 py-4">
@@ -123,7 +132,7 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="mt-auto border-t">
+      <SidebarFooter className="mt-auto">
         <SidebarMenu>
           {footerItems.map((item) => (
             <SidebarMenuItem key={item.title}>
