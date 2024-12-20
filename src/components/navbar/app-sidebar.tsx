@@ -1,15 +1,6 @@
 "use client";
 
 import {
-  Cloud,
-  Code2,
-  FileText,
-  Home,
-  LogOut,
-  Phone,
-  Settings,
-} from "lucide-react";
-import {
   Select,
   SelectContent,
   SelectGroup,
@@ -17,7 +8,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "../ui/select";
 import {
   Sidebar,
   SidebarContent,
@@ -28,60 +19,19 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { footerItems, navigationItems } from "./nav-items";
 
 import Image from "next/image";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
-const navigationItems = [
-  {
-    title: "Repositories",
-    url: "/repository/repositories",
-    icon: Home,
-  },
-  {
-    title: "AI Code Review",
-    url: "/repository/code-review",
-    icon: Code2,
-  },
-  {
-    title: "Cloud Security",
-    url: "/repository/cloud-security",
-    icon: Cloud,
-  },
-  {
-    title: "How to Use",
-    url: "/repository/guide",
-    icon: FileText,
-  },
-  {
-    title: "Settings",
-    url: "/repository/settings",
-    icon: Settings,
-  },
-];
-
-const footerItems = [
-  {
-    title: "Support",
-    url: "/repository/support",
-    icon: Phone,
-  },
-  {
-    title: "Logout",
-    onClick: () => signOut(),
-    icon: LogOut,
-  },
-];
 
 export function AppSidebar() {
   const pathname = usePathname();
   const [selectedUser, setSelectedUser] = useState("UtkarshDhairyaPanwar");
 
   return (
-    <Sidebar className="hidden border-r bg-white lg:block">
+    <Sidebar className="border-r bg-white">
       <SidebarHeader className="space-y-5">
         <div className="mx-4 mt-6 flex items-center gap-3">
           <Image src="/logo.svg" alt="CodeAnt AI Logo" width={29} height={32} />
@@ -156,7 +106,9 @@ export function AppSidebar() {
                   </Link>
                 ) : (
                   <button
-                    onClick={item.onClick}
+                    onClick={async () => {
+                      await item.onClick?.();
+                    }}
                     className="flex w-full items-center gap-3 rounded-md px-3.5 py-2.5"
                   >
                     <item.icon className="h-5 w-4" />
