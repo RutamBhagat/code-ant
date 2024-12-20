@@ -8,6 +8,10 @@ CodeAnt AI is a frontend implementation project completed as part of the Fronten
 
 **Frontend Repo:** [Repository URL](https://github.com/RutamBhagat/code-ant)
 
+## Demo Video
+
+[Watch the Walkthrough](https://github.com/user-attachments/assets/76e8a7e1-6f73-42eb-85be-5627eee8774c)
+
 ## Key Features
 
 - **Responsive Design**: Fully responsive layouts optimized for all devices and screen sizes
