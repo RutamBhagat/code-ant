@@ -16,7 +16,7 @@ export default function RepositoryLayout({
       }
     >
       <AppSidebar />
-      <main>
+      <main className="flex-1 p-6">
         <SidebarTrigger />
         {children}
       </main>
