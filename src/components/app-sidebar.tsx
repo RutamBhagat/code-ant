@@ -33,6 +33,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const navigationItems = [
   {
@@ -77,6 +78,7 @@ const footerItems = [
 
 export function AppSidebar() {
   const pathname = usePathname();
+  const [selectedUser, setSelectedUser] = useState("UtkarshDhairyaPanwar");
 
   return (
     <Sidebar className="border-r bg-white">
@@ -85,7 +87,7 @@ export function AppSidebar() {
           <Image src="/logo.svg" alt="CodeAnt AI Logo" width={29} height={32} />
           <span className="text-2xl leading-6">CodeAnt AI</span>
         </div>
-        <Select>
+        <Select value={selectedUser} onValueChange={setSelectedUser}>
           <SelectTrigger className="mx-auto h-[40px] w-[202px]">
             <SelectValue placeholder="Select a username" />
           </SelectTrigger>
