@@ -69,7 +69,7 @@ const footerItems = [
   },
   {
     title: "Logout",
-    url: "/repository/logout",
+    url: "/",
     icon: LogOut,
   },
 ];
@@ -113,16 +113,22 @@ export function AppSidebar() {
                   <SidebarMenuButton
                     asChild
                     isActive={isActive}
-                    className={`w-full gap-2 ${
-                      isActive ? "bg-blue-600 text-white" : "hover:bg-gray-100"
-                    }`}
+                    className="h-12 w-full gap-2"
+                    style={
+                      {
+                        "--sidebar-accent": "215, 87%, 51%",
+                        "--sidebar-accent-foreground": "0, 0%, 100%",
+                      } as React.CSSProperties
+                    }
                   >
                     <Link
                       href={item.url}
-                      className="flex items-center gap-2 rounded-md px-3 py-2"
+                      className="flex items-center gap-3 rounded-md px-3.5 py-2.5"
                     >
-                      <item.icon className="h-4 w-4" />
-                      <span className="text-sm font-medium">{item.title}</span>
+                      <item.icon className="h-5 w-4" />
+                      <span className="text-md font-semibold">
+                        {item.title}
+                      </span>
                     </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -132,20 +138,17 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="mt-auto">
+      <SidebarFooter className="mt-auto px-4 pb-6">
         <SidebarMenu>
           {footerItems.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton
-                asChild
-                className="w-full gap-2 hover:bg-gray-100"
-              >
+              <SidebarMenuButton asChild className="h-11 w-full gap-2">
                 <Link
                   href={item.url}
-                  className="flex items-center gap-2 rounded-md px-3 py-2"
+                  className="flex items-center gap-3 rounded-md px-3.5 py-2.5"
                 >
-                  <item.icon className="h-4 w-4" />
-                  <span className="text-sm font-medium">{item.title}</span>
+                  <item.icon className="h-5 w-4" />
+                  <span className="text-md font-semibold">{item.title}</span>
                 </Link>
               </SidebarMenuButton>
             </SidebarMenuItem>
