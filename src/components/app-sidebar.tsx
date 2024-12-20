@@ -77,7 +77,7 @@ export function AppSidebar() {
 
   return (
     <Sidebar className="border-r bg-[#FAFAFA]">
-      <SidebarHeader className="flex h-[60px] items-center justify-between border-b px-4">
+      <SidebarHeader className="flex items-center justify-between border-b px-4">
         <div className="flex items-center gap-2">
           <Image src="/logo.svg" alt="CodeAnt AI Logo" width={32} height={32} />
           <span className="text-lg font-semibold">CodeAnt AI</span>
@@ -87,7 +87,7 @@ export function AppSidebar() {
             UtkarshDhairyaPa...
             <ChevronDown className="h-4 w-4" />
           </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
+          <DropdownMenuContent className="w-56" sideOffset={5} align="end">
             <DropdownMenuItem>Profile</DropdownMenuItem>
             <DropdownMenuItem>Settings</DropdownMenuItem>
           </DropdownMenuContent>
