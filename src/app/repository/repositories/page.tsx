@@ -2,6 +2,7 @@ import { Database, Plus, RefreshCcw, Search } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import React from "react";
 import { auth } from "@/server/auth";
@@ -16,49 +17,51 @@ export default async function page() {
   }
 
   return (
-    <div className="space-y-6 p-4 md:p-6">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <div className="space-y-2">
-          <h1 className="text-2xl font-semibold md:text-3xl">Repositories</h1>
-          <p className="text-sm leading-5 text-muted-foreground">
-            33 total repositories
-          </p>
+    <Card className="rounded-none lg:m-6 lg:rounded-xl">
+      <div className="space-y-6 px-4 py-5 sm:px-6 sm:py-5">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-2">
+            <h1 className="text-2xl font-semibold md:text-3xl">Repositories</h1>
+            <p className="text-sm leading-5 text-muted-foreground">
+              33 total repositories
+            </p>
+          </div>
+
+          <div className="flex gap-3">
+            <Button
+              variant="outline"
+              className="h-10 w-full px-4 sm:w-auto"
+              size="lg"
+            >
+              <RefreshCcw className="mr-2 h-4 w-4" />
+              Refresh All
+            </Button>
+            <Button
+              className="h-10 w-full bg-[#1570ef] px-4 text-white hover:bg-[#184179] sm:w-auto"
+              size="lg"
+            >
+              <Plus className="mr-2 h-4 w-4" />
+              Add Repository
+            </Button>
+          </div>
         </div>
 
-        <div className="flex gap-3">
-          <Button
-            variant="outline"
-            className="h-10 w-full px-4 sm:w-auto"
-            size="lg"
-          >
-            <RefreshCcw className="mr-2 h-4 w-4" />
-            Refresh All
-          </Button>
-          <Button
-            className="h-10 w-full bg-[#1570ef] px-4 text-white hover:bg-[#184179] sm:w-auto"
-            size="lg"
-          >
-            <Plus className="mr-2 h-4 w-4" />
-            Add Repository
-          </Button>
+        <div className="relative">
+          <div className="absolute inset-y-0 left-3 flex items-center">
+            <Search className="h-4 w-4 text-muted-foreground" />
+          </div>
+          <Input
+            placeholder="Search Repositories"
+            className="h-11 max-w-[366px] pl-11"
+          />
         </div>
-      </div>
-
-      <div className="relative">
-        <div className="absolute inset-y-0 left-3 flex items-center">
-          <Search className="h-4 w-4 text-muted-foreground" />
-        </div>
-        <Input
-          placeholder="Search Repositories"
-          className="h-11 max-w-[366px] pl-11"
-        />
       </div>
 
       <div className="">
         {repositories.map((repo) => (
           <div
             key={repo.name}
-            className="flex flex-col gap-2 border p-4 hover:bg-[#f5f5f5] sm:flex-row sm:items-center"
+            className="flex flex-col gap-2 border-t p-4 hover:bg-[#f5f5f5] sm:flex-row sm:items-center"
           >
             <div className="min-w-0 flex-1 space-y-3">
               <div className="flex items-center gap-2">
@@ -86,6 +89,6 @@ export default async function page() {
           </div>
         ))}
       </div>
-    </div>
+    </Card>
   );
 }
