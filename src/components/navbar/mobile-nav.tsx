@@ -18,32 +18,30 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu } from "lucide-react";
-import { usePathname } from "next/navigation";
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [selectedUser, setSelectedUser] = React.useState(
     "UtkarshDhairyaPanwar",
   );
-  const pathname = usePathname();
 
   return (
-    <header className="flex h-16 items-center justify-between border-b px-4 lg:hidden">
+    <header className="flex items-center justify-between p-4 pb-6 lg:hidden">
       <div className="flex items-center gap-3">
         <Image src="/logo.svg" alt="CodeAnt AI Logo" width={29} height={32} />
-        <span className="text-2xl">CodeAnt AI</span>
+        <span className="text-2xl leading-6">CodeAnt AI</span>
       </div>
       <Sheet open={isOpen} onOpenChange={setIsOpen}>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon" className="lg:hidden">
-            <Menu className="h-6 w-6" />
+            <Menu className="h-5 w-4" />
             <span className="sr-only">Toggle menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="top" className="h-[100dvh] w-full border-0 p-0">
+        <SheetContent side="top" className="w-full p-0">
           <div className="flex h-full flex-col">
             {/* Sheet Header */}
-            <div className="flex h-16 items-center justify-between border-b px-4">
+            <div className="flex items-center justify-between p-4 pb-6">
               <div className="flex items-center gap-3">
                 <Image
                   src="/logo.svg"
@@ -63,9 +61,9 @@ export function MobileNav() {
             </div>
 
             {/* User Select */}
-            <div className="border-b px-4 py-3">
+            <div className="px-4">
               <Select value={selectedUser} onValueChange={setSelectedUser}>
-                <SelectTrigger className="w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-base hover:bg-gray-50">
+                <SelectTrigger className="w-full rounded-md bg-white px-3 text-base hover:bg-gray-50">
                   <SelectValue placeholder="Select a username" />
                 </SelectTrigger>
                 <SelectContent className="w-full min-w-[200px]">
@@ -109,18 +107,17 @@ export function MobileNav() {
             </div>
 
             {/* Navigation */}
-            <div className="flex-1 overflow-y-auto">
-              <nav className="space-y-1 p-3">
+            <div className="flex-1 overflow-y-auto px-4 pb-6 pt-3">
+              <nav className="space-y-1">
                 {navigationItems.map((item) => {
-                  const isActive = pathname === item.url;
                   return (
                     <Link
                       key={item.title}
                       href={item.url}
-                      className="flex items-center gap-3 rounded-md px-3 py-2.5 text-[15px] font-medium text-gray-700 transition-colors hover:bg-gray-50"
+                      className="flex items-center gap-3 rounded-md px-3 py-2.5 text-[15px] font-semibold text-gray-700 transition-colors hover:bg-gray-50"
                       onClick={() => setIsOpen(false)}
                     >
-                      <item.icon className="h-5 w-5 flex-shrink-0" />
+                      <item.icon className="h-5 w-4" />
                       {item.title}
                     </Link>
                   );
@@ -128,17 +125,17 @@ export function MobileNav() {
               </nav>
 
               {/* Footer Items */}
-              <div className="mt-auto border-t">
-                <div className="space-y-1 p-3">
+              <div className="mt-auto">
+                <div className="space-y-1">
                   {footerItems.map((item) =>
                     item.url ? (
                       <Link
                         key={item.title}
                         href={item.url}
-                        className="flex items-center gap-3 rounded-md px-3 py-2.5 text-[15px] font-medium text-gray-700 transition-colors hover:bg-gray-50"
+                        className="flex items-center gap-3 rounded-md px-3 py-2.5 text-[15px] font-semibold text-gray-700 transition-colors hover:bg-gray-50"
                         onClick={() => setIsOpen(false)}
                       >
-                        <item.icon className="h-5 w-5 flex-shrink-0" />
+                        <item.icon className="h-5 w-4" />
                         {item.title}
                       </Link>
                     ) : (
@@ -148,9 +145,9 @@ export function MobileNav() {
                           setIsOpen(false);
                           void item.onClick?.();
                         }}
-                        className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-[15px] font-medium text-gray-700 transition-colors hover:bg-gray-50"
+                        className="text-md flex w-full items-center gap-3 rounded-md px-3 py-2.5 font-semibold text-gray-700 transition-colors hover:bg-gray-50"
                       >
-                        <item.icon className="h-5 w-5 flex-shrink-0" />
+                        <item.icon className="h-5 w-4" />
                         {item.title}
                       </button>
                     ),
