@@ -42,7 +42,7 @@ const SAAS_OPTIONS: LoginOption[] = [
     label: "Github",
     onClick: () => {
       void signIn("github", {
-        callbackUrl: "/repository",
+        callbackUrl: "/repository/repositories",
       });
     },
   },
