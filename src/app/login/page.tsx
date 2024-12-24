@@ -20,8 +20,6 @@ export default function LoginPage() {
           <LoginForm />
         </section>
       </div>
-
-      {/* Background logo positioned relative to page root */}
       <div
         className="absolute bottom-0 left-0 hidden lg:block"
         aria-hidden="true"
