@@ -22,7 +22,7 @@ const STATS_DATA = [
 
 export function StatsSection() {
   return (
-    <section className="relative w-full max-w-[460px] px-6">
+    <section className="relative w-full max-w-[460px] px-6 z-10">
       <Card className="rounded-3xl bg-white shadow-lg">
         <header className="flex items-center gap-3 p-6 pb-0">
           <Image src="/logo.svg" alt="CodeAnt Logo" width={28} height={30} />
